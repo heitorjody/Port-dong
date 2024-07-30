@@ -3,45 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Fotógrafo</title>
+    <title>Dong</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-<header>
-    <img src="images/logo.png" alt="Logo">
-    <nav>
-        <a href="#fotos">Fotos</a>
-        <a href="#videos">Vídeos</a>
-        <a href="#contato">Contato</a>
-    </nav>
-</header>
+    <header>
+        <img src="images/logo.png" alt="Logo">
+        <nav>
+            <a href="#fotos">Fotos</a>
+            <a href="#videos">Vídeos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-<div class="banner" id="videos">
-    <video controls autoplay muted loop>
-        <source src="videos/Look 16.mp4" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-    </video>
-</div>
+    <div class="banner" id="videos">
+        <video id="portfolioVideo" controls autoplay muted loop>
+            <source src="videos/Look 16.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
 
-<div class="gallery" id="fotos">
-    <img src="images/foto1.jpg" alt="Foto 1">
-    <img src="images/foto2.jpg" alt="Foto 2">
-    <img src="images/foto3.jpg" alt="Foto 3">
-    <img src="images/foto4.jpg" alt="Foto 4">
-    <img src="images/foto5.jpg" alt="Foto 5">
-    <img src="images/foto6.jpg" alt="Foto 6">
-</div>
+    <div class="gallery" id="fotos">
+        <img src="images/foto1.jpg" alt="Foto 1" data-hover="images/foto7.jpg">
+        <img src="images/foto2.jpg" alt="Foto 2" data-hover="images/foto8.jpg">
+        <img src="images/foto3.jpg" alt="Foto 3" data-hover="images/foto9.jpg">
+        <img src="images/foto4.jpg" alt="Foto 4" data-hover="images/foto10.jpg">
+        <img src="images/foto5.jpg" alt="Foto 5" data-hover="images/foto11.jpg">
+        <img src="images/foto6.jpg" alt="Foto 6" data-hover="images/foto12.jpg">
+    </div>
 
-<div class="contact-form" id="contato">
-    <h2>Contato</h2>
-    <form action="enviar.php" method="post">
-        <input type="text" name="nome" placeholder="Nome" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
-</div>
+    <div class="contact-form" id="contato">
+        <h2>Contato</h2>
+        <form action="enviar.php" method="post">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+
+        images.forEach(image => {
+            const originalSrc = image.src;
+            const hoverSrc = image.getAttribute('data-hover');
+
+            image.addEventListener('mouseover', () => {
+                image.style.transform = 'scale(1.2)';
+                image.src = hoverSrc;
+            });
+
+            image.addEventListener('mouseout', () => {
+                image.style.transform = 'scale(1)';
+                image.src = originalSrc;
+            });
+        });
+
+        const videoList = [
+            "videos/Look 16.mp4",
+            "videos/Look 35.mp4", // Adicione outros vídeos aqui
+            "videos/Look 60.mp4"
+        ];
+        let currentVideo = 0;
+        const videoElement = document.getElementById('portfolioVideo');
+
+        videoElement.addEventListener('ended', () => {
+            currentVideo = (currentVideo + 1) % videoList.length;
+            videoElement.src = videoList[currentVideo];
+            videoElement.play();
+        });
+    </script>
 
 </body>
 </html>
