@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Portf?lio de Fot?grafo</title>
+    <title>Admin - Portfólio de Fotógrafo</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
@@ -12,12 +12,12 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="admin.html">Admin</a>
-        <a href="logout.html">Logout</a>
+        <a href="logout.html">Logout</a> <!-- Verifique se logout.html está no mesmo diretório -->
     </nav>
 </header>
 
 <div class="admin-panel">
-    <h2>Gerenciar Fotos e V?deos</h2>
+    <h2>Gerenciar Fotos e Vídeos</h2>
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" id="fileInput" multiple>
         <button type="button" onclick="uploadFiles()">Upload</button>
@@ -38,7 +38,7 @@
             fileItem.textContent = files[i].name;
             fileList.appendChild(fileItem);
 
-            // Adicione o c?digo aqui para fazer o upload real do arquivo
+            // Adicione o código aqui para fazer o upload real do arquivo
         }
 
         alert('Arquivos enviados!');
