@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Portf?lio de Fot?grafo</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="admin.html">Admin</a>
+        <a href="logout.html">Logout</a>
+    </nav>
+</header>
+
+<div class="admin-panel">
+    <h2>Gerenciar Fotos e V?deos</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" multiple>
+        <button type="button" onclick="uploadFiles()">Upload</button>
+    </form>
+    <div id="fileList"></div>
+</div>
+
+<script>
+    function uploadFiles() {
+        const fileInput = document.getElementById('fileInput');
+        const files = fileInput.files;
+        const fileList = document.getElementById('fileList');
+        
+        fileList.innerHTML = '';
+
+        for (let i = 0; i < files.length; i++) {
+            const fileItem = document.createElement('div');
+            fileItem.textContent = files[i].name;
+            fileList.appendChild(fileItem);
+
+            // Adicione o c?digo aqui para fazer o upload real do arquivo
+        }
+
+        alert('Arquivos enviados!');
+    }
+</script>
+
+</body>
+</html>

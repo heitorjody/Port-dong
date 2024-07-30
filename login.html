@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portfólio de Fotógrafo</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <div class="login-form">
+        <h2>Login</h2>
+        <form action="admin.html" method="post" onsubmit="return validateLogin()">
+            <input type="text" id="username" name="username" placeholder="Usuário" required>
+            <input type="password" id="password" name="password" placeholder="Senha" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <script>
+    function validateLogin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Simples validação de usuário e senha
+        if (username === 'fotografo' && password === 'senha123') {
+            return true;
+        } else {
+            document.getElementById('error-message').textContent = 'Usuário ou senha incorretos';
+            return false;
+        }
+    }
+    </script>
+
+</body>
+</html>
