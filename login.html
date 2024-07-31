@@ -23,10 +23,17 @@
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
 
+        // Adicionar logs para depuração
+        console.log('Username:', username);
+        console.log('Password:', password);
+
         // Simples validação de usuário e senha
         if (username === 'dong' && password === 'dong123') {
+            console.log('Login bem-sucedido');
             window.location.href = 'admin.html';
+            return false; // Prevenir o envio do formulário
         } else {
+            console.log('Login falhou');
             document.getElementById('error-message').textContent = 'Usuário ou senha incorretos';
             return false; // Prevenir o envio do formulário
         }
