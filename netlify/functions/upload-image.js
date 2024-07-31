@@ -14,8 +14,8 @@ exports.handler = async (event, context) => {
 
     try {
         const response = await octokit.repos.createOrUpdateFileContents({
-            owner: 'seu-usuario',
-            repo: 'seu-repositorio',
+            owner: 'heitorjody',
+            repo: 'Port-dong',
             path: `images/${name}`,
             message: `Add ${name}`,
             content: Buffer.from(content, 'base64').toString('base64'),
